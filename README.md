@@ -2,7 +2,7 @@
 
 ![Dashboard](./screenshot/dashboard.png "Neovim dashboard")
 
-This repository contains my configuration for neovim to make it my primary development environment. The goal is to switch entirely to neovim to have a faster, more productive development experience all from the terminal with minimal overhead.
+This repository contains my configuration for neovim to make it my primary development environment. The goal is to switch entirely to neovim to have a faster, more productive development experience.
 
 ## Features
 
