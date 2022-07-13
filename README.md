@@ -2,13 +2,12 @@
 
 ![Dashboard](./screenshot/dashboard.png "Neovim dashboard")
 
-This repository contains my configuration for neovim to make it my primary development environment.
+This repository contains my configuration for neovim to make it my primary development environment. The goal is to switch entirely to neovim to have a faster, more productive development experience all from the terminal with minimal overhead.
 
 ## Features
 
-| Feature        | Plugins           |
-| -------------- | ----------------- |
-| Plugin Manager | packer            |
+| Feature        | Plugin            |
+|:-------------- |:----------------- |
 | Statusbar      | lualine           |
 | Bufferbar      | bufferline        |
 | Fuzzy Finder   | telescope         |
@@ -22,9 +21,10 @@ This repository contains my configuration for neovim to make it my primary devel
 | Icons          | nvim-web-devicons |
 | Dashboard      | alpha-nvim        |
 | Colorscheme    | tokyonight        |
+| Plugin Manager | packer            |
 
 ## Installation
 
 1. Clone the repo
-2. Open `lua/packer_init.nvim` file in neovim and save it. This is will automatically download and install all the required plugins.
-3. Additionally install the required language servers using `:CocInstall <server name>`. Refer to the  [language server list](https://github.com/neoclide/coc.nvim/wiki/Language-servers) for a list of LSP server names.
+2. Open `lua/packer_init.nvim` in neovim and save it. This is will automatically download and install all the required plugins.
+3. Additionally, install required language servers using `:CocInstall <server name>`. Refer [this](https://github.com/neoclide/coc.nvim/wiki/Language-servers) for a list of available LSP servers.
