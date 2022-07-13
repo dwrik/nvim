@@ -21,6 +21,7 @@ opt.completeopt = 'menuone,noinsert,noselect'      -- autocomplete options
 -- neovim ui
 -----------------------------------------------------------
 opt.number = true           -- show line number
+opt.relativenumber = true   -- show relative line numbers
 opt.showmatch = true        -- highlight matching parenthesis
 opt.foldmethod = 'indent'   -- enable folding (default 'foldmarker')
 opt.foldlevelstart = 99     -- open all folds on start
