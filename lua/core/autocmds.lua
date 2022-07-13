@@ -1,0 +1,68 @@
+------------------------
+-- autocommands
+------------------------
+
+-- define autocommands with lua apis
+-- See: h:api-autocmd, h:augroup
+
+local augroup = vim.api.nvim_create_augroup   -- create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd   -- create autocommand
+
+-- highlight on yank
+augroup('YankHighlight', { clear = true })
+autocmd('TextYankPost', {
+  group = 'YankHighlight',
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '200' })
+  end
+})
+
+-- remove whitespace on save
+autocmd('BufWritePre', {
+  pattern = '*',
+  command = ':%s/\\s\\+$//e'
+})
+
+-- terminal settings:
+-- opens terminal on the right tab
+autocmd('CmdlineEnter', {
+  command = 'command! Term :botright vsplit term://$SHELL'
+})
+
+-- enter insert mode when switching to terminal
+autocmd('TermOpen', {
+  command = 'setlocal listchars= nonumber norelativenumber nocursorline',
+})
+
+autocmd('TermOpen', {
+  pattern = '*',
+  command = 'startinsert'
+})
+
+-- close terminal buffer on process exit
+autocmd('BufLeave', {
+  pattern = 'term://*',
+  command = 'stopinsert'
+})
+
+-- settings for filetypes:
+-- disable line length marker
+-- augroup('setLineLength', { clear = true })
+-- autocmd('Filetype', {
+--  group = 'setLineLength',
+--  pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescript' },
+--  command = 'setlocal cc=0'
+-- })
+
+-- set indentation to 2 spaces
+-- augroup('setIndent', { clear = true })
+-- autocmd('Filetype', {
+--  group = 'setIndent',
+--  pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
+--    'yaml', 'lua'
+--  },
+--  command = 'setlocal shiftwidth=2 tabstop=2'
+-- })
+
+-- darker highlighting for nvim tree
+-- vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=#262626")
