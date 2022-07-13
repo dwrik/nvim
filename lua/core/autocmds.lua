@@ -44,25 +44,3 @@ autocmd('BufLeave', {
   pattern = 'term://*',
   command = 'stopinsert'
 })
-
--- settings for filetypes:
--- disable line length marker
--- augroup('setLineLength', { clear = true })
--- autocmd('Filetype', {
---  group = 'setLineLength',
---  pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescript' },
---  command = 'setlocal cc=0'
--- })
-
--- set indentation to 2 spaces
--- augroup('setIndent', { clear = true })
--- autocmd('Filetype', {
---  group = 'setIndent',
---  pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
---    'yaml', 'lua'
---  },
---  command = 'setlocal shiftwidth=2 tabstop=2'
--- })
-
--- darker highlighting for nvim tree
--- vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=#262626")
