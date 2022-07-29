@@ -2,7 +2,7 @@
   "coc.source.around.shortcut": "BF",
   "coc.source.file.shortcut": "FS",
   "coc.source.buffer.enable": false,
-  "coc.preferences.formatOnSaveFiletypes": ["go"],
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
 
   "javascript.suggest.names": false,
   "Lua.telemetry.enable": false,
