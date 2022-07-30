@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-![Dashboard](./screenshot/dashboard.png "Neovim dashboard")
+![Dashboard](./screenshot/neovim.png "Neovim start screen")
 
 This repository contains my configuration for neovim to make it my primary development environment. The goal is to switch entirely to neovim to have a faster, more productive development experience.
 
