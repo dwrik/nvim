@@ -13,13 +13,14 @@ end
 bufferline.setup {
     options = {
         mode = 'buffers',
-        close_command = 'Bdelete! %d',
-        left_mouse_command = 'buffer %d',
+        show_close_icon = false,
+        always_show_bufferline = false,
         right_mouse_command = nil,
         middle_mouse_command = nil,
-        diagnostics = "coc",
+        close_command = 'Bdelete! %d',
+        left_mouse_command = 'buffer %d',
         diagnostics_update_in_insert = false,
-        show_close_icon = false,
-        offsets = { { filetype = 'NvimTree', text = '' } }, -- {{ text_align='left' | 'center' | 'right' }}
+        diagnostics = "coc",
+        offsets = { { filetype = 'NvimTree', text = '' } },
     }
 }
