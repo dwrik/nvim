@@ -20,7 +20,7 @@ This repository contains my configuration for neovim to make it my primary devel
 | Git Indicators | gitsigns          |
 | Icons          | nvim-web-devicons |
 | Dashboard      | alpha-nvim        |
-| Colorscheme    | tokyonight        |
+| Colorscheme    | github-theme      |
 | Plugin Manager | packer            |
 
 ## Installation
