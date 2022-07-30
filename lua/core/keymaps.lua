@@ -3,11 +3,11 @@
 -----------------------------------------------------------
 
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- change leader to space
@@ -34,6 +34,7 @@ map('n', '<Leader>k', ':resize +2<CR>')
 map('n', '<Leader>j', ':resize -2<CR>')
 map('n', '<Leader>l', ':vertical resize +2<CR>')
 map('n', '<Leader>h', ':vertical resize -2<CR>')
+map('n', '<Leader>m', ':resize<CR>')
 
 -- remove highlight
 map('n', '//', ':noh<CR>')
