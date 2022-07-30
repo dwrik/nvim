@@ -2,31 +2,52 @@
 -- color scheme configuration file
 -----------------------------------------------------------
 
--- available color schemes: onedark, github-theme, base16, tokyonight
+-- available color schemes: onedark, github-theme, tokyonight, base16
 
 ---------------------------------
 -- tokyonight
 ---------------------------------
-vim.g.tokyonight_style = 'storm'
-vim.g.tokyonight_transparent = false
-vim.g.tokyonight_lualine_bold = true
-vim.g.tokyonight_sidebars = { 'qf', 'vista_kind', 'terminal', 'packer', 'NvimTree' }
+
+-- vim.g.tokyonight_style = 'day'
+-- vim.g.tokyonight_transparent = false
+-- vim.g.tokyonight_lualine_bold = true
+-- vim.g.tokyonight_sidebars = { 'qf', 'vista_kind', 'terminal', 'packer', 'NvimTree' }
 
 ---------------------------------
--- colorschemes without lua setup
+-- zenbones
 ---------------------------------
-local colorscheme = 'tokyonight'
-local ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
-if not ok then
-  vim.notify('colorscheme' .. colorscheme .. ' not found!')
-  return
+
+-- vim.g.zenbones_compat = 1
+
+---------------------------------
+-- colorschemes setup (tokyonight, zenbones)
+---------------------------------
+
+-- local colorscheme = 'tokyonight'
+-- local ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
+-- if not ok then
+--     vim.notify('colorscheme' .. colorscheme .. ' not found!')
+--     return
+-- end
+
+---------------------------------
+-- colorschemes setup (onedark, github)
+---------------------------------
+
+local status_ok, color_scheme = pcall(require, 'github-theme')
+if not status_ok then
+    return
 end
 
--- require to configure (onedark, github-theme)
--- local status_ok, color_scheme = pcall(require, 'github-theme')
--- if not status_ok then
---   return
--- end
+---------------------------------
+-- github-theme
+---------------------------------
+
+color_scheme.setup({
+    dark_float = true,
+    sidebars = { 'qf', 'vista_kind', 'terminal', 'packer', 'NvimTree' },
+    theme_style = 'light',
+})
 
 ---------------------------------
 -- onedark
@@ -60,15 +81,3 @@ end
 -- }
 --
 -- color_scheme.load()
-
----------------------------------
--- github-theme
----------------------------------
-
--- color_scheme.setup({
---   dark_float = true,
---   sidebars = {'qf', 'vista_kind', 'terminal', 'packer', 'NvimTree'},
---   theme_style = 'dark',
--- })
---
--- color_scheme.setup()
