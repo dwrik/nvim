@@ -29,6 +29,11 @@ autocmd('BufWritePre', {
     command = '%s/\\s\\+$//e'
 })
 
+-- java io template (copies over FastIO template, renames classname, moves cursor to main)
+autocmd('BufNewFile', { pattern = '*.java', command = 'r ~/Programming/templates/Template.java' })
+autocmd('BufNewFile', { pattern = '*.java', command = 'call cursor(1, 0) | delete' })
+autocmd('BufNewFile', { pattern = '*.java', command = "%s/Template/\\=expand('%:t:r')/g" })
+autocmd('BufNewFile', { pattern = '*.java', command = 'call cursor(13, 3)' })
 
 ---------------------------------------------------------
 -- filetype based code execution keybinding using autocmd
@@ -69,14 +74,14 @@ autocmd('BufEnter', {
         -- run code interactively without any input file
         vim.keymap.set('n', regular_run_binding, function()
             require('nvterm.terminal').send(
-                java_command .. ' ' .. expand('%') .. ' && java ' .. expand('%:r') .. ' && rm -rf *.class', 'vertical')
+                java_command .. ' ' .. expand('%') .. ' && java -cp ' .. expand('%:h') .. ' ' .. expand('%:t:r') .. ' && rm -rf *.class', 'vertical')
         end)
 
         -- run code using inputs from input.txt
         vim.keymap.set('n', input_file_binding, function()
             require('nvterm.terminal').send(
                 java_command .. ' ' .. expand('%') ..
-                ' && [[ -f input.txt ]] && cat input.txt | java ' .. expand('%:r') .. ' && rm -rf *.class', 'vertical')
+                ' && [[ -f input.txt ]] && cat input.txt | java -cp ' .. expand('%:h') .. ' ' .. expand('%:t:r') .. ' && rm -rf *.class', 'vertical')
         end)
     end
 })
