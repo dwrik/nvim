@@ -43,8 +43,8 @@ cmp.setup({
         entries = { name = 'custom', selection_order = 'near_cursor' }
     },
     mapping = {
-        -- tab key to confirm completion, set select to true to insert first item even if not selected
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        -- enter key to confirm completion, set select to true to insert first item even if not selected
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
         -- ctrl+j/k to navigate next/prev based on completion list direction
         ['<C-j>'] = function(fallback)
