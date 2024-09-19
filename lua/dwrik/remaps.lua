@@ -41,7 +41,7 @@ vim.keymap.set('n', '//', ':noh<CR>')
 -- navigate b/w buffers
 vim.keymap.set('n', '<S-l>', ':bnext<CR>')
 vim.keymap.set('n', '<S-h>', ':bprevious<CR>')
-vim.keymap.set('n', 'gb', ':BufferLinePick<CR>')
+vim.keymap.set('n', 'sb', ':BufferLinePick<CR>')
 
 -- close buffer
 vim.keymap.set('n', '<S-q>', ':Bdelete! %<CR>')

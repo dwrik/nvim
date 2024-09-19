@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     -- colorschemes
     use { 'rose-pine/neovim', as = 'rose-pine' } -- rose-pine
     use { 'sainnhe/everforest' }                 -- everforest
+    use { 'rebelot/kanagawa.nvim' }              -- kanagawa
 
     -- treesitter, syntax tree parser
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -32,7 +33,7 @@ return require('packer').startup(function(use)
         requires = {
             -- lsp support
             { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim',          run = function() pcall(vim.api.nvim_command, 'MasonUpdate') end },
+            { 'williamboman/mason.nvim', run = function() pcall(vim.api.nvim_command, 'MasonUpdate') end },
             { 'williamboman/mason-lspconfig.nvim' },
 
             -- autocompletion

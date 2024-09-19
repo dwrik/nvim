@@ -17,7 +17,6 @@ telescope.setup {
             -- project directories
             'node_modules',
             'build',
-            'public',
             'icons',
             -- home directories
             'Applications',

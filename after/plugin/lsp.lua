@@ -5,11 +5,20 @@ local lsp = require('lsp-zero').preset({
 
 lsp.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
-    -- to learn the available actions
+    -- for default lsp bindings
+
+    -- omit setting the following bindings
     lsp.default_keymaps({
         buffer = bufnr,
-        omit = { 'gr' }, -- omit setting the following bindings
+        omit = { 'gr', '<F2>', '<F3>', '<F4>' },
     })
+
+    -- set custom bindings
+    vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { buffer = bufnr })
+    vim.keymap.set('n', '<leader>fo', '<cmd>lua vim.lsp.buf.format()<cr>', { buffer = bufnr })
+    vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', { buffer = bufnr })
+
+    -- refer trouble.lua for - go to reference or 'gr'
 end)
 
 -- TODO install the following language servers manually by running :mason
@@ -47,7 +56,7 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
         -- ctrl+j/k to navigate next/prev based on completion list direction
-        ['<C-j>'] = function(fallback)
+        ['<C-n>'] = function(fallback)
             if cmp.visible() then
                 if cmp.core.view.custom_entries_view:is_direction_top_down() then
                     cmp.select_next_item()
@@ -58,7 +67,7 @@ cmp.setup({
                 fallback()
             end
         end,
-        ['<C-k>'] = function(fallback)
+        ['<C-p>'] = function(fallback)
             if cmp.visible() then
                 if cmp.core.view.custom_entries_view:is_direction_top_down() then
                     cmp.select_prev_item()

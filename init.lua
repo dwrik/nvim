@@ -30,10 +30,10 @@ autocmd('BufWritePre', {
 })
 
 -- java io template (copies over FastIO template, renames classname, moves cursor to main)
-autocmd('BufNewFile', { pattern = '*.java', command = 'r ~/Programming/templates/Template.java' })
-autocmd('BufNewFile', { pattern = '*.java', command = 'call cursor(1, 0) | delete' })
-autocmd('BufNewFile', { pattern = '*.java', command = "%s/Template/\\=expand('%:t:r')/g" })
-autocmd('BufNewFile', { pattern = '*.java', command = 'call cursor(13, 3)' })
+--autocmd('BufNewFile', { pattern = '*.java', command = 'r ~/Programming/templates/Template.java' })
+--autocmd('BufNewFile', { pattern = '*.java', command = 'call cursor(1, 0) | delete' })
+--autocmd('BufNewFile', { pattern = '*.java', command = "%s/Template/\\=expand('%:t:r')/g" })
+--autocmd('BufNewFile', { pattern = '*.java', command = 'call cursor(13, 3)' })
 
 ---------------------------------------------------------
 -- filetype based code execution keybinding using autocmd
@@ -47,6 +47,22 @@ local regular_run_binding = '<leader>rr'
 -- local python_command = 'python3'
 local cpp_command = 'g++ -O2 -Wall'
 local java_command = 'javac'
+local python_command = 'python3'
+
+-- python
+autocmd('BufEnter', {
+    pattern = { '*.py' },
+    callback = function(ev)
+        -- run code interactively without any input file
+        vim.keymap.set('n', regular_run_binding, function()
+            require('nvterm.terminal').send(
+                python_command .. ' ' .. expand('%'), 'vertical')
+        end)
+
+        -- run code using inputs from input.txt
+        -- first make file executable (+x), then simply pipe into it like 'cat input.txt | ./script.py'
+    end
+})
 
 -- cpp
 autocmd('BufEnter', {

@@ -2,8 +2,11 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- prevent words from splitting due to wrap
+vim.opt.linebreak = true
+
 -- true colors
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 
 -- backup & undo
 vim.opt.swapfile = false
@@ -49,4 +52,7 @@ vim.opt.signcolumn = 'yes'    -- always show sign column to prevent shift
 -- performance
 vim.opt.updatetime = 300      -- event trigger timeout
 vim.opt.timeoutlen = 500      -- keymap trigger timeout
+
+-- file format (line endings etc.)
+vim.opt.fileformat = 'unix'
 

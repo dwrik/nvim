@@ -22,7 +22,7 @@ require('nvterm').setup {
                 col = 0.15,
                 width = 0.7,
                 height = 0.7,
-                border = 'solid',
+                border = 'solid', -- solid, single, double
             },
             horizontal = { location = 'rightbelow', split_ratio = .3, },
             vertical = { location = 'rightbelow', split_ratio = .4 },
